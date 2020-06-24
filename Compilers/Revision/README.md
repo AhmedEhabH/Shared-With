@@ -80,17 +80,8 @@
                 - 14. return (relop, GT)
     
     - **Step #5** Design Non-deterministic finite automation (NFA)
+    - **Step #6** Transform Non-deterministic finite automation (NFA) to Deterministic finite automation (DFA)
     
-
-
-
-
-
-
-
-
-
-
 ---
 ## 2. Syntax analysis (**Top-down parser**)
 1. Eliminate Ambigutiy
