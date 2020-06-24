@@ -12,10 +12,84 @@
 6. Transform Non-deterministic finite automation (NFA) to Deterministic finite automation (DFA)
 
 ### Example
-stmt -> *if* expr *then* stmt |
-        *if* expr *then* stmt *else* stmt | other<br>
-expr -> term *relop* term | term <br>
-term -> *id* | *num*<br>
+1.  stmt  -> *if* R *then* stmt |
+            *if* R *then* stmt *else* stmt | E<br>
+    E     -> E + T | E - T | T<br>
+    T     -> T * F | T / F | F<br>
+    F     -> num | id | (E)<br>
+    R     -> id relop id<br>
+    relop -> > | < | >= | <=<br>
+---
+1. Solution<br>
+    - **Step #1** Identify Tokens, Lexemes, Patterns
+        Tokens      | Lexemes       | Patterns
+        ----------- | ------------- | --------
+        if          | if            | if
+        then        | then          | then
+        else        | else          | else
+        add_op      | '+'           | '+' 
+        sub_op      | '-'           | '-'
+        mul_op      | '*'           | '*'
+        dev_op      | '/'           | '/'
+        left_brack  | '('           | '('
+        right_brack | ')'           | ')'
+        relop       | >, <, >=, <=  | >, <, >=, <= 
+        id          | x1, pi,       | letter floowed by letters or digits
+        num         | 3.14, 5.1     | digit or digits
+    
+    - **Step #2** Regular Expression<br>
+        id: letter (letter | digit)*<br>
+        num: digit digit*
+    - **Step #3** Regular definition
+            stmt  -> *if* R *then* stmt |
+            *if* R *then* stmt *else* stmt | E<br>
+            E     -> E + T | E - T | T<br>
+            T     -> T * F | T / F | F<br>
+            F     -> num | id | (E)<br>
+            R     -> id relop id<br>
+            relop -> > | < | >= | <=<br>
+        
+        ---------------
+        if -> if <br>
+        then -> then<br>
+        else -> else<br>
+        num -> digit digit*<br>
+        digit -> 0|1|2|3|4|5|6|7|8|9<br>
+        id -> letter(letter | digit)*<br>
+        letter -> a|b|...z|A|B|...|Z<br>
+    - **Step #4** Transition Diagrams
+    start -> 
+    0. 
+        - i
+            - 1. f
+                - 2. return (if, if)
+        - e
+            - 3. l
+                - 4. s
+                    - 5. e
+                        - 6. return(else, else)
+        - <
+            - 7. =
+                - 8. return(relop, LE)
+            - 9. other 
+                - 10. return (relop LT)
+        - >
+            - 11. =
+                - 12. return (relop, GE)
+            - 13. other
+                - 14. return (relop, GT)
+    
+    - **Step #5** Design Non-deterministic finite automation (NFA)
+    
+
+
+
+
+
+
+
+
+
 
 ---
 ## 2. Syntax analysis (**Top-down parser**)
