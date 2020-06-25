@@ -73,25 +73,25 @@
                 - 8. e
                     - 9. n
                         - 10. return(then, then)
-        - +
+        - \+
             - 11. return (add_op, +)
         - \-
             - 12. return (sub_op, -)
-        - *
+        - \*
             - 13. return (mul_op, *)
-        - \
+        - \\
             - 14. return (div_op, \\)
-        - (
+        - \(
             - 19. return(left_brack, \( )
-        - )
+        - \)
             - 20. return(right_brack, \) )
-        - <
-            - 15. =
+        - \<
+            - 15. \=
                 - 16. return(relop, LE)
             - 17. other 
                 - 18. return (relop LT)
         - \>
-            - 21. =
+            - 21. \=
                 - 22. return (relop, GE)
             - 23. other
                 - 24. return (relop, GT)
