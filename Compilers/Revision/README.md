@@ -136,6 +136,47 @@ using your design parse the following statment `ibtibtaea`
         T   -> F T'<br>
         T'  -> * F T' | empty<br>
         F   -> ( E ) | id<br>
+        - No left factoring
+    - Step **3** Draw transition diagram (*not necessary*)
+    - Step **4** Apply First/Follow operators
+        Non-terminal    | First        | Follow
+        --------------- | ------------ | ------
+        E               | { (, id }    | { $, ) }          
+        E'              | { +, empty } | { $, ) }
+        T               | { (, id }    | { +, $, ) }
+        T'              | { *, empty } | { +, $, ) }
+        F               | { (, id }    | { *, +, $, ) }
+    - Step **5** Get parsing table <br>
+        Non-Terminal    | id            | +             | *             | (             | )             | $
+        --------------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
+        E               | E   -> T E'   |               |               | E   -> T E'   |               |   
+        E'              |               | E'  -> + T E' |               |               | E' -> empty   | E' -> empty
+        T               | T   -> F T'   |               |               | T   -> F T'   |               |
+        T'              |               | T'  -> empty  | T'  -> * F T' |               | T'  -> empty  | T'  -> empty
+        F               | F   -> id     |               |               | F   -> ( E )  |               |
+    - Step **6** Parse statement
+        Stack       | Input     | Output
+        ----------- | --------- | ------
+        $E          | id+id*id$ |
+        $E'T        | id+id*id$ | E   -> T E'
+        $E'T'F      | id+id*id$ | T   -> F T'
+        $E'T'id     | id+id*id$ | 
+        $E'T'       | +id*id$   |
+        $E'         | +id*id$   | T'  -> empty
+        $E'T+       | +id*id$   | E'  -> + T E'
+        $E'T        | id*id$    |
+        $E'T'F      | id*id$    | T   -> F T'
+        $E'T'id     | id*id$    |
+        $E'T'       | *id$      |
+        $E'T'F*     | *id$      | T'  -> * F T'
+        $E'T'F      | id$       |
+        $E'T'id     | id$       | F   -> id
+        $E'T'       | $         |
+        $E'         | $         | T'  -> empty
+        $           | $         | E'  -> empty 
+        Stop Statement parsed
+        - Is this grammar Left scan Left parse (**LL(1)**)?
+            - yes, there is no cell have to production
 
 ---
 
