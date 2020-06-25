@@ -6,7 +6,7 @@
 ## 1. Lexical analysis
 1. Identify Tokens, Lexemes, Patterns
 2. Write regular expression
-3. Write regular difiniation
+3. Write regular definition
 4. Draw transition diagrams
 5. Design Non-deterministic finite automation (NFA)
 6. Transform Non-deterministic finite automation (NFA) to Deterministic finite automation (DFA)
@@ -38,7 +38,7 @@
         num         | 3.14, 5.1     | digit or digits
     
     - **Step #2** Regular Expression<br>
-        id: letter (letter | digit)*<br>
+        id: letter (letter | digit)\* <br>
         num: digit digit*
     - **Step #3** Regular definition
             stmt  -> *if* R *then* stmt |
@@ -57,7 +57,7 @@
         digit -> 0|1|2|3|4|5|6|7|8|9<br>
         id -> letter(letter | digit)*<br>
         letter -> a|b|...z|A|B|...|Z<br>
-    - **Step #4** Transition Diagrams
+    - **Step #4** Transition Diagrams<br>
     start -> 
     0. 
         - i
@@ -68,16 +68,33 @@
                 - 4. s
                     - 5. e
                         - 6. return(else, else)
+        - t
+            - 7. h
+                - 8. e
+                    - 9. n
+                        - 10. return(then, then)
+        - +
+            - 11. return (add_op, +)
+        - \-
+            - 12. return (sub_op, -)
+        - *
+            - 13. return (mul_op, *)
+        - \
+            - 14. return (div_op, \\)
+        - (
+            - 19. return(left_brack, \( )
+        - )
+            - 20. return(right_brack, \) )
         - <
-            - 7. =
-                - 8. return(relop, LE)
-            - 9. other 
-                - 10. return (relop LT)
-        - >
-            - 11. =
-                - 12. return (relop, GE)
-            - 13. other
-                - 14. return (relop, GT)
+            - 15. =
+                - 16. return(relop, LE)
+            - 17. other 
+                - 18. return (relop LT)
+        - \>
+            - 21. =
+                - 22. return (relop, GE)
+            - 23. other
+                - 24. return (relop, GT)
     
     - **Step #5** Design Non-deterministic finite automation (NFA)
     - **Step #6** Transform Non-deterministic finite automation (NFA) to Deterministic finite automation (DFA)
