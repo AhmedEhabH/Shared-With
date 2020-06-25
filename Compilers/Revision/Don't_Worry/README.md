@@ -8,7 +8,7 @@ F            | {(, id}      | {*, +, $, )}
 
 ---
 
-E -> T E'
+E -> T E'<br>
 first
 if first have empty
 follow

@@ -127,6 +127,18 @@ design a non recursive non backtracking predictive parser.<br>
 using your design parse the following statment `ibtibtaea` 
 
 ---
+1. Solution<br>
+    - Step **1** Eliminate Ambigutiy (*don't do it in exam*)
+    - Step **2** Eliminate Left Recursion and Left Factoring
+        - Left Recursion<br>
+        E   -> T E'<br>
+        E'  -> + T E' | empty<br>
+        T   -> F T'<br>
+        T'  -> * F T' | empty<br>
+        F   -> ( E ) | id<br>
+
+---
+
 2.  SOLUTION<br>
     - Step **1** Eliminate Ambigutiy (*don't do it in exam*)
     - Step **2** Eliminate Left Recursion and Left Factoring
@@ -137,11 +149,11 @@ using your design parse the following statment `ibtibtaea`
             - E  -> b<br>
     - Step **3** Draw transition diagram (*not necessary*)
     - Step **4** Apply First/Follow operators
-        Non-terminal | First        | Follow
-        ------------ | ------------ | ------
-        S            | { i, a }        | { $, e }
-        S'           | { e, empty } | { $, e }
-        E            | { b }        | { t }
+        Non-terminal | First            | Follow
+        ------------ | ---------------- | ------
+        S            | { i, a }         | { $, e }
+        S'           | { e, empty }    | { $, e }
+        E            | { b }            | { t }
     - Step **5** Get parsing table
         Non-terminal | a      | b     | e                         | i             | t | $
         ------------ | ------ | ----- | ------------------------- | ------------- | - | ----------- 
@@ -170,7 +182,7 @@ using your design parse the following statment `ibtibtaea`
         $ S'            | $               | 
         $               | $               | S' -> empty
         Stop Statement parsed
-        - Is this grammar Left scan Left parse (**LL**)?
+        - Is this grammar Left scan Left parse (**LL(1)**)?
             - No, because 2 production in the same cell [S', e]; <br>
             because grammar is ambiguous.
 ---
