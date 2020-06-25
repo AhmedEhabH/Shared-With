@@ -97,7 +97,13 @@
                 - 24. return (relop, GT)
     
     - **Step #5** Design Non-deterministic finite automation (NFA)
+        - solution
+            - 1. #### RE=letter(letter|digit)\*
+                - ![RE=letter(letter|digit)\*](./images/RE01.png)<br>
+            - 2. #### RE=digit digit\*
+                - ![RE=digit digit\*](./images/RE02.png)<br>
     - **Step #6** Transform Non-deterministic finite automation (NFA) to Deterministic finite automation (DFA)
+        - [SOLUTION](./AMA/README.md)
     
 ---
 ## 2. Syntax analysis (**Top-down parser**)
