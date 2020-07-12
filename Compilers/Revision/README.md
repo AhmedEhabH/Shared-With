@@ -148,13 +148,13 @@ using your design parse the following statment `ibtibtaea`
         $E          | id+id*id$ |
         $E'T        | id+id*id$ | E   -> T E'
         $E'T'F      | id+id*id$ | T   -> F T'
-        $E'T'id     | id+id*id$ | 
+        $E'T'id     | id+id*id$ | F   -> id
         $E'T'       | +id*id$   |
         $E'         | +id*id$   | T'  -> empty
         $E'T+       | +id*id$   | E'  -> + T E'
         $E'T        | id*id$    |
         $E'T'F      | id*id$    | T   -> F T'
-        $E'T'id     | id*id$    |
+        $E'T'id     | id*id$    | F   -> id
         $E'T'       | *id$      |
         $E'T'F*     | *id$      | T'  -> * F T'
         $E'T'F      | id$       |
@@ -162,7 +162,7 @@ using your design parse the following statment `ibtibtaea`
         $E'T'       | $         |
         $E'         | $         | T'  -> empty
         $           | $         | E'  -> empty 
-        Stop Statement parsed
+        Stop, Statement parsed well
         - Is this grammar Left scan Left parse (**LL(1)**)?
             - yes, there is no cell have two production
 
