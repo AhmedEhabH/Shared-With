@@ -61,40 +61,28 @@
     start -> 
     0. 
         - i
-            - 1. f
-                - 2. return (if, if)
+            - f
+                - return (if, if)
         - e
-            - 3. l
-                - 4. s
-                    - 5. e
-                        - 6. return(else, else)
+            - l
+                - s
+                    - e
+                        - return(else, else)
         - t
-            - 7. h
-                - 8. e
-                    - 9. n
-                        - 10. return(then, then)
-        - \+
-            - 11. return (add_op, +)
-        - \-
-            - 12. return (sub_op, -)
-        - \*
-            - 13. return (mul_op, *)
-        - \\
-            - 14. return (div_op, \\)
-        - \(
-            - 19. return(left_brack, \( )
-        - \)
-            - 20. return(right_brack, \) )
+            - h
+                - e
+                    - n
+                        -  return(then, then)
         - \<
-            - 15. \=
-                - 16. return(relop, LE)
-            - 17. other 
-                - 18. return (relop LT)
+            - \=
+                - return(relop, LE)
+            - other 
+                - return (relop LT)
         - \>
-            - 21. \=
-                - 22. return (relop, GE)
-            - 23. other
-                - 24. return (relop, GT)
+            - \=
+                - return (relop, GE)
+            - other
+                - return (relop, GT)
     
     - **Step #5** Design Non-deterministic finite automation (NFA)
         - solution
