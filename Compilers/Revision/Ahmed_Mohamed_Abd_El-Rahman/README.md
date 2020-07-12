@@ -59,7 +59,7 @@ e-close ({1}) = {1, 2, 4} -> B<br>
 D-trans(A, d) = B<br>
 
 move (B, d) = {3}<br>
-e-close({3}) = {2, 4} -> C<br>
+e-close({3}) = {2, 3, 4} -> C<br>
 D-trans(B, d) = C<br>
 
 move(C, d) = {3}<br>
