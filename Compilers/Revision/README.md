@@ -164,7 +164,7 @@ using your design parse the following statment `ibtibtaea`
         $           | $         | E'  -> empty 
         Stop Statement parsed
         - Is this grammar Left scan Left parse (**LL(1)**)?
-            - yes, there is no cell have to production
+            - yes, there is no cell have two production
 
 ---
 
