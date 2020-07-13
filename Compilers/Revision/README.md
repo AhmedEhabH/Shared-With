@@ -95,8 +95,8 @@
     
 ---
 ## 2. Syntax analysis (**Top-down parser**)
-1. Eliminate Ambigutiy
-2. Eliminte Left recursion and left factoring
+1. Eliminate Ambiguity
+2. Eliminate Left recursion and left factoring
 3. Draw transition diagram (*not necessary*)
 4. Apply first/follow operators
 5. Get parsing table
